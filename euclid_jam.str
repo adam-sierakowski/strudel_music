@@ -1,0 +1,10 @@
+setcpm(120/4)
+
+$: n(1).scale("C3:major").euclid(7,16).color("green").room(1.5).gain(2)
+$: n(4).scale("C3:major").euclid(8,32).color("green").mask("<1 0>")
+$: n("<2 3>").scale("C4:major").euclid(3,8)
+$: n("<2 3 2 3>").scale("C4:major").euclidrot(3,16,14)
+$: n(5).scale("C4:major").euclidrot(3,10,2)
+$: n(1).scale("C5:major").euclidrot(16,100,1).color("green").gain(0.2).lpf(1000).mask("<1 0 0 0>")
+
+.spiral()

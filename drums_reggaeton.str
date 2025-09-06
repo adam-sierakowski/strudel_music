@@ -1,0 +1,6 @@
+setcpm(150/4)
+
+$DRUMS: stack(
+  sound("jazz*2"),
+  sound("sd").beat("3, 6", 8).speed(10).lpf(1500)
+)

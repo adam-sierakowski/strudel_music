@@ -1,0 +1,14 @@
+// Without Euclid
+setcpm(1)
+
+$SECOND_HAND: s("hh*60")
+$MINUTE_HAND: s("<bd>")
+$HOUR_HAND: s("<cowbell>").gain(2).slow(60).room(5).delay(".9:.5:.1")
+$HOUR_HAND: s("<cowbell>").gain(2).mask("<1 0!59>").room(5).delay(".9:.5:.1") // alternatively
+
+// With Euclid
+
+setcpm(1)
+$SECOND_HAND: s("hh").euclid(60,60)
+$MINUTE_HAND: s("bd").euclid(1,60)
+$HOUR_HAND: s("cowbell").euclid(1,60).gain(2).slow(60).room(5).delay(".9:.5:.1")
