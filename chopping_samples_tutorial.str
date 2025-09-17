@@ -1,0 +1,36 @@
+// Breakcore from Switch Angel's tutorial on chopping samples
+// https://www.youtube.com/watch?v=dcmwqqzJubA
+
+setGainCurve(x => Math.pow(x, 2))
+samples('github:switchangel/breaks')
+samples('github:switchangel/pad')
+samples('github:tidalcycles/uzu-drumkit')
+
+setCps(170/60/4)
+
+$: s("breaks/2").fit()
+  .scrub(irand(16).div(16).segment(8)
+  .ribbon(`
+          <
+          20 5 20 2
+          20 5 3 2
+          >
+          `, 1).almostNever(ply("2 | 4"))
+        )
+  ._scope()
+
+_$: s("white!8").decay(.08).gain(.45)
+  .almostNever(ply("2 | 4"))
+
+const chops = [
+  ".3@3 .2".color("teal"),
+  ".16!3 .2@5".color("yellow"),
+  rand.seg(8).ribbon(2, 1).color("red"),
+  rand.seg(8).ribbon(1, 1).color("green")
+]
+
+$: s("swpad")
+  .scrub(pick(chops, "<0 0 1 <2 3>>"))
+  .gain(1.1).n(4)
+  .phaser(.4)
+  ._punchcard()
